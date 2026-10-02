@@ -1,0 +1,17 @@
+{
+  "name": "marioneball",
+  "version": "1.0.0",
+  "description": "Marione Ball Twitch Bot",
+  "type": "module",
+  "main": "bot.js",
+  "scripts": {
+    "start": "node bot.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tmi.js/chat": "^0.8.0",
+    "dotenv": "^18.0.5"
+  }
+}

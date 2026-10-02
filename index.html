@@ -1,19 +1,14 @@
 <html>
     <input type="text" id="inputField" placeholder="Type something...">
     <button id="submitButton">Submit</button>
+    <p id="output"></p>
 </html>
 
 
 <script>
     const domanda = document.getElementById('inputField');
     const submitButton = document.getElementById('submitButton');
-    const risposte = [
-    "Sì",
-    "No",
-    "Forse",
-    "Non contarci",
-    "Le stelle dicono di sì"
-];
+    const output = document.getElementById('output');
 
 const risposteGeneriche = [
     "Sì, direi proprio di sì.",
@@ -71,15 +66,60 @@ const paroleGaming = [
     "elo"
 ];
 
+
+
     submitButton.addEventListener('click', function() {
-        if (domanda.value.startsWith('!ball')) {
-            const randomIndex = Math.floor(Math.random() * risposte.length);
-            const rispostaCasuale = risposte[randomIndex];
-            console.log(rispostaCasuale);
-            console.log('Risposta generata per la domanda: ' + domanda.value.slice(5).trim());
+        const testoNormalizzato = domanda.value.toLowerCase().trim();
+        if (testoNormalizzato.startsWith('!ball')) {
+            const testoDomanda = testoNormalizzato.slice(5).trim();
+            const risposta = getRandomResponse(testoDomanda);
+            output.textContent = risposta;
+            domanda.value = '';
         } else {
-            console.log('Keep typing...');
+            output.textContent = "Devi iniziare la domanda con !ball";
         }
     });
+
+
+function getRandomResponse(testoDomanda) {
+
+        if (testoDomanda === "") {
+            return "Devi farmi una domanda!";
+        }
+
+        else if (paroleAmore.some(word => testoDomanda.includes(word))) {
+
+            const randomIndex = Math.floor(
+                Math.random() * risposteAmore.length
+            );
+
+            const rispostaCasuale = risposteAmore[randomIndex];
+
+            return rispostaCasuale;
+        }
+
+        else if (paroleGaming.some(word => testoDomanda.includes(word))) {
+
+            const randomIndex = Math.floor(
+                Math.random() * risposteGaming.length
+            );
+
+            const rispostaCasuale = risposteGaming[randomIndex];
+return rispostaCasuale;
+            
+        }
+
+        else {
+
+            const randomIndex = Math.floor(
+                Math.random() * risposteGeneriche.length
+            );
+
+            const rispostaCasuale = risposteGeneriche[randomIndex];
+
+           return rispostaCasuale;
+        }
+
+    }
     
 </script>
