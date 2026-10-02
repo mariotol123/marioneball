@@ -1,0 +1,85 @@
+<html>
+    <input type="text" id="inputField" placeholder="Type something...">
+    <button id="submitButton">Submit</button>
+</html>
+
+
+<script>
+    const domanda = document.getElementById('inputField');
+    const submitButton = document.getElementById('submitButton');
+    const risposte = [
+    "Sì",
+    "No",
+    "Forse",
+    "Non contarci",
+    "Le stelle dicono di sì"
+];
+
+const risposteGeneriche = [
+    "Sì, direi proprio di sì.",
+    "No, non ci conterei troppo.",
+    "Forse... il Marione è indeciso.",
+    "Le stelle non sono chiarissime.",
+    "Direi 50 e 50.",
+    "Chiedimelo più tardi.",
+    "Oggi il Marione è ottimista.",
+    "Meglio non sapere tutto in anticipo."
+];
+
+const risposteAmore = [
+    "Qui sento delle vibrazioni interessanti 👀",
+    "Potrebbe esserci qualcosa.",
+    "Non correre troppo con la fantasia.",
+    "Secondo me devi osservare meglio i segnali.",
+    "Il Marione vede confusione sentimentale.",
+    "Possibilità ce ne sono.",
+    "Occhio a non diventare troppo preso.",
+    "In amore il Marione non garantisce nulla."
+];
+
+const risposteGaming = [
+    "Oggi si scala.",
+    "Prevedo una lose evitabile.",
+    "Il matchmaking non sarà dalla tua parte.",
+    "Se non tilti, hai speranze.",
+    "Il Marione vede punti rank in arrivo.",
+    "Questa sa di partita da carry.",
+    "Meglio riscaldare le mani prima.",
+    "Il team farà cose discutibili."
+];
+
+
+const paroleAmore = [
+    "amore",
+    "ragazza",
+    "ragazzo",
+    "fidanzata",
+    "fidanzato",
+    "ama",
+    "piaccio",
+    "crush"
+];
+
+const paroleGaming = [
+    "valorant",
+    "league",
+    "lol",
+    "rank",
+    "vinco",
+    "partita",
+    "game",
+    "elo"
+];
+
+    submitButton.addEventListener('click', function() {
+        if (domanda.value.startsWith('!ball')) {
+            const randomIndex = Math.floor(Math.random() * risposte.length);
+            const rispostaCasuale = risposte[randomIndex];
+            console.log(rispostaCasuale);
+            console.log('Risposta generata per la domanda: ' + domanda.value.slice(5).trim());
+        } else {
+            console.log('Keep typing...');
+        }
+    });
+    
+</script>
